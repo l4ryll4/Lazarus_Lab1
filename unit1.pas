@@ -193,12 +193,12 @@ end;
 
 procedure TForm1.MenuItem3Click(Sender: TObject);
 begin
-  SetDefaultLang('russian');
+  SetDefaultLang('ru');
 end;
 
 procedure TForm1.MenuItem4Click(Sender: TObject);
 begin
-  SetDefaultLang('english');
+  SetDefaultLang('en');
 end;
 
 procedure TForm1.OprogrammeClick(Sender: TObject);
