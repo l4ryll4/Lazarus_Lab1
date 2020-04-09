@@ -1,0 +1,107 @@
+object Form4: TForm4
+  Left = 1275
+  Height = 444
+  Top = 545
+  Width = 400
+  Caption = 'Form4'
+  ClientHeight = 418
+  ClientWidth = 400
+  DesignTimePPI = 120
+  Menu = MainMenu1
+  LCLVersion = '2.0.0.4'
+  object Tekst: TMemo
+    Left = 0
+    Height = 418
+    Top = 0
+    Width = 400
+    Align = alClient
+    TabOrder = 0
+  end
+  object MainMenu1: TMainMenu
+    left = 8
+    top = 272
+    object Fail: TMenuItem
+      Caption = 'Файл'
+      object Novyi: TMenuItem
+        Caption = 'Новый'
+        OnClick = NovyiClick
+      end
+      object Otkrit: TMenuItem
+        Caption = 'Открыть'
+        OnClick = OtkritClick
+      end
+      object Zakrit: TMenuItem
+        Caption = 'Закрыть'
+      end
+      object Sohranit: TMenuItem
+        Caption = 'Сохранить'
+        OnClick = SohranitClick
+      end
+      object Sohranitkak: TMenuItem
+        Caption = 'Сохранить как'
+        OnClick = SohranitkakClick
+      end
+      object Vihod: TMenuItem
+        Caption = 'Выход'
+      end
+    end
+    object Pravka: TMenuItem
+      Caption = 'Правка'
+      object Videlitvse: TMenuItem
+        Caption = 'Выделить все'
+      end
+      object Virezat: TMenuItem
+        Caption = 'Вырезать'
+      end
+      object Kopirovat: TMenuItem
+        Caption = 'Копировать'
+      end
+      object Vstavit: TMenuItem
+        Caption = 'Вставить'
+      end
+    end
+    object Vid: TMenuItem
+      Caption = 'Вид'
+      object Shrift: TMenuItem
+        Caption = 'Шрифт'
+      end
+      object Tema: TMenuItem
+        Caption = 'Тема оформления'
+      end
+    end
+    object Poisk: TMenuItem
+      Caption = 'Поиск'
+      object Naiti: TMenuItem
+        Caption = 'Найти'
+      end
+      object Zamenit: TMenuItem
+        Caption = 'Заменить'
+      end
+    end
+    object Spavka: TMenuItem
+      Caption = 'Справка'
+      object Spavka2: TMenuItem
+        Caption = 'Справка'
+      end
+      object Oprogramme: TMenuItem
+        Caption = 'О Программе'
+      end
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 'Текстовые файлы|*.txt|Файлы pas|*.pas|Все файлы|*.*'
+    left = 72
+    top = 272
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '.txt'
+    left = 144
+    top = 272
+  end
+  object FontDialog1: TFontDialog
+    MinFontSize = 0
+    MaxFontSize = 0
+    left = 216
+    top = 272
+  end
+end
