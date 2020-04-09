@@ -35,6 +35,7 @@ type
     ReplaceDialog1: TReplaceDialog;
     SaveDialog1: TSaveDialog;
     Spravka1: TMenuItem;
+    Timer1: TTimer;
     Zamenit: TMenuItem;
     Naiti: TMenuItem;
     Tema: TMenuItem;
@@ -56,8 +57,6 @@ type
     Fail: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure KopirovatClick(Sender: TObject);
-    procedure Memo1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer
-      );
     procedure MenuItem1Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem4Click(Sender: TObject);
@@ -72,6 +71,7 @@ type
     procedure Tema2Click(Sender: TObject);
     procedure Tema3Click(Sender: TObject);
     procedure TemaClick(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
     procedure VidelitvseClick(Sender: TObject);
     procedure VihodClick(Sender: TObject);
     procedure VirezatClick(Sender: TObject);
@@ -86,6 +86,8 @@ type
 var
   Form1: TForm1;
   SynCh: Real;
+  todayTime: TDateTime;
+  todayDate: TDateTime;
 
 implementation
 uses Unit2, Unit3;
@@ -161,17 +163,14 @@ begin
   SynEdit1.Hide();
   SynEdit1.Text:='';
   SynCh:= 0;
-end;
 
-procedure TForm1.Memo1MouseMove(Sender: TObject; Shift: TShiftState; X,
-  Y: Integer);
-var Row, Col: Integer;
-begin
-  //Row := SendMessage(Memo1.Handle, EM_LINEFROMCHAR, Memo1.SelStart, 0);
-  //Col := Memo1.SelStart - SendMessage(Memo1.Handle, EM_LINEINDEX, Row, 0);
-  //StatusBar1.Panels[0].Text := 'Row= ' + IntToStr(Row+1) + ' Col= ' + IntToStr(Col+1);
-  //StatusBar1.Panels[0].Text := CaretPos.Y;
-  StatusBar1.Panels[1].Text := FormatDateTime('hh.mm.ss', Time);
+  todayTime:=Time;
+  todayDate:=Date;
+
+  StatusBar1.Panels[0].Text:=DateToStr(todayDate);
+  StatusBar1.Panels[1].Text:=TimeToStr(todayTime);
+  StatusBar1.Panels[2].Text:=memo1.Lines[memo1.CaretPos.Y];
+
 end;
 
 procedure TForm1.MenuItem1Click(Sender: TObject);
@@ -266,6 +265,19 @@ end;
 procedure TForm1.TemaClick(Sender: TObject);
 begin
 
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+var a: string;
+begin
+  todayTime:=Time;
+  todayDate:=Date;
+
+  if SynCh = 0 then a:= IntToStr(SynEdit1.CaretY) else a:= IntToStr(SynEdit1.CaretY);
+
+  StatusBar1.Panels[0].Text:=DateToStr(todayDate);
+  StatusBar1.Panels[1].Text:=TimeToStr(todayTime);
+  StatusBar1.Panels[2].Text:=a;
 end;
 
 procedure TForm1.VidelitvseClick(Sender: TObject);

@@ -15,7 +15,6 @@ object Form1: TForm1
     Top = 0
     Width = 326
     Align = alClient
-    OnMouseMove = Memo1MouseMove
     ParentFont = False
     TabOrder = 0
   end
@@ -25,6 +24,9 @@ object Form1: TForm1
     Top = 197
     Width = 326
     Panels = <    
+      item
+        Width = 50
+      end    
       item
         Width = 50
       end    
@@ -646,14 +648,14 @@ object Form1: TForm1
   end
   object SaveDialog1: TSaveDialog
     DefaultExt = '.txt'
-    left = 184
+    left = 176
     top = 40
   end
   object FontDialog1: TFontDialog
     MinFontSize = 0
     MaxFontSize = 0
-    left = 224
-    top = 40
+    left = 176
+    top = 96
   end
   object FindDialog1: TFindDialog
     left = 56
@@ -680,6 +682,12 @@ object Form1: TForm1
     DefaultFilter = 'Файлы Python (*.py)|*.py'
     Enabled = False
     left = 56
+    top = 96
+  end
+  object Timer1: TTimer
+    Interval = 1
+    OnTimer = Timer1Timer
+    left = 136
     top = 96
   end
 end
