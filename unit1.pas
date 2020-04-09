@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, StdCtrls,
-  ExtCtrls, Lclintf, ComCtrls;
+  ExtCtrls, Lclintf, ComCtrls, SynEdit, SynHighlighterHTML, SynHighlighterCss,
+  SynHighlighterPython;
 
 type
 
@@ -17,7 +18,12 @@ type
     FontDialog1: TFontDialog;
     MainMenu1: TMainMenu;
     Kopirovat: TMenuItem;
+    MenuItem1: TMenuItem;
     StatusBar1: TStatusBar;
+    SynCssSyn1: TSynCssSyn;
+    SynEdit1: TSynEdit;
+    SynHTMLSyn1: TSynHTMLSyn;
+    SynPythonSyn1: TSynPythonSyn;
     Tema3: TMenuItem;
     Tema2: TMenuItem;
     Tema1: TMenuItem;
@@ -45,9 +51,11 @@ type
     Pravka: TMenuItem;
     Memo1: TMemo;
     Fail: TMenuItem;
+    procedure FormCreate(Sender: TObject);
     procedure KopirovatClick(Sender: TObject);
     procedure Memo1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer
       );
+    procedure MenuItem1Click(Sender: TObject);
     procedure NaitiClick(Sender: TObject);
     procedure NoviClick(Sender: TObject);
     procedure OprogrammeClick(Sender: TObject);
@@ -72,9 +80,10 @@ type
 
 var
   Form1: TForm1;
+  SynCh: Real;
 
 implementation
-uses Unit2;
+uses Unit2, Unit3;
 
 procedure Ansi_Memo(File_Ansi: string);
 var
@@ -84,7 +93,7 @@ begin
 tfile:= TStringList.Create;
 tfile.LoadFromFile(File_Ansi);
 str:= tfile.Text;
-Form1.Memo1.Lines.Add(str);
+if SynCh = 0 then Form1.Memo1.Lines.Add(str) else Form1.SynEdit1.Lines.Add(str);
 tfile.Free;
 end;
 
@@ -94,7 +103,7 @@ tfile: TStringList;
 str: string;
 begin
 tfile:= TStringList.Create;
-str:=Form1.Memo1.text;
+If SynCh = 0 then str:=Form1.Memo1.text else Form1.SynEdit1.Lines.Add(str);
 tfile.Add(str);
 tfile.SaveToFile(File_Ansi);
 tfile.Free;
@@ -119,26 +128,34 @@ begin
    FontDialog1.Font:=  memo1.Font;
 if FontDialog1.execute=true  then
      begin
-        Form1.Memo1.Font := FontDialog1.Font;
+        if SynCh = 0 then Form1.Memo1.Font := FontDialog1.Font else Form1.SynEdit1.Font := FontDialog1.Font;
      end;
 end;
 
 procedure TForm1.NoviClick(Sender: TObject);
 begin
-  Memo1.Clear;
+  if SynCh = 0 then Memo1.Clear else SynEdit1.Clear;
 end;
 
 procedure TForm1.NaitiClick(Sender: TObject);
 begin
    if FindDialog1.execute=true then
         begin
-           Form1.Memo1.Text :=FindDialog1.FindText;
+           if SynCh = 0 then Form1.Memo1.Text :=FindDialog1.FindText else Form1.SynEdit1.Text :=FindDialog1.FindText;
         end;
 end;
 
 procedure TForm1.KopirovatClick(Sender: TObject);
 begin
-  Memo1.CopytoClipboard;
+  if SynCh = 0 then Memo1.CopytoClipboard else SynEdit1.CopytoClipboard;
+end;
+
+//На старте виден лишь memo
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  SynEdit1.Hide();
+  SynEdit1.Text:='';
+  SynCh:= 0;
 end;
 
 procedure TForm1.Memo1MouseMove(Sender: TObject; Shift: TShiftState; X,
@@ -150,6 +167,23 @@ begin
   //StatusBar1.Panels[0].Text := 'Row= ' + IntToStr(Row+1) + ' Col= ' + IntToStr(Col+1);
   //StatusBar1.Panels[0].Text := CaretPos.Y;
   StatusBar1.Panels[1].Text := FormatDateTime('hh.mm.ss', Time);
+end;
+
+procedure TForm1.MenuItem1Click(Sender: TObject);
+begin
+  if SynCh = 0 then
+       begin
+          Memo1.Hide;
+          SynEdit1.Show;
+          SynCh:= 1;
+          Form3.Show;
+       end else
+       begin
+         SynEdit1.Hide;
+         Memo1.Show;
+         SynCh:= 0;
+         Form3.Hide;
+       end;
 end;
 
 procedure TForm1.OprogrammeClick(Sender: TObject);
@@ -176,20 +210,42 @@ end;
 
 procedure TForm1.Tema1Click(Sender: TObject);
 begin
-  Memo1.Color := clWhite;
-  Memo1.Font.Color :=clBlack;
+  if SynCh = 0 then
+    begin
+       Memo1.Color := clWhite;
+       Memo1.Font.Color :=clBlack;
+    end else
+    begin
+      SynEdit1.Color := clWhite;
+      SynEdit1.Font.Color :=clBlack;
+    end;
+
 end;
 
 procedure TForm1.Tema2Click(Sender: TObject);
 begin
-  Memo1.Color := clBlack;
-  Memo1.Font.Color :=clWhite;
+  if SynCh = 0 then
+    begin
+       Memo1.Color := clBlack;
+       Memo1.Font.Color :=clWhite;
+    end else
+    begin
+      SynEdit1.Color := clBlack;
+      SynEdit1.Font.Color :=clWhite;
+    end;
 end;
 
 procedure TForm1.Tema3Click(Sender: TObject);
 begin
-  Memo1.Color := clGray;
-  Memo1.Font.Color :=clWhite;
+  if SynCh = 0 then
+    begin
+       Memo1.Color := clGray;
+       Memo1.Font.Color :=clWhite;
+    end else
+    begin
+      SynEdit1.Color := clGray;
+      SynEdit1.Font.Color :=clWhite;
+    end;
 end;
 
 procedure TForm1.TemaClick(Sender: TObject);
@@ -199,7 +255,7 @@ end;
 
 procedure TForm1.VidelitvseClick(Sender: TObject);
 begin
-  Memo1.SelectAll;
+  if SynCh = 0 then Memo1.SelectAll else SynEdit1.SelectAll;
 end;
 
 procedure TForm1.VihodClick(Sender: TObject);
@@ -209,19 +265,19 @@ end;
 
 procedure TForm1.VirezatClick(Sender: TObject);
 begin
-  Memo1.CuttoClipboard;
+  if SynCh = 0 then Memo1.CuttoClipboard else SynEdit1.CuttoClipboard;
 end;
 
 procedure TForm1.VstavitClick(Sender: TObject);
 begin
-   Memo1.PasteFromClipboard;
+   if SynCh = 0 then Memo1.PasteFromClipboard else SynEdit1.PasteFromClipboard;
 end;
 
 procedure TForm1.ZamenitClick(Sender: TObject);
 begin
   if ReplaceDialog1.Execute then
     begin
-       Form1.Memo1.Text :=ReplaceDialog1.ReplaceText;
+       If SynCh = 0 then Form1.Memo1.Text :=ReplaceDialog1.ReplaceText else Form1.SynEdit1.Text :=ReplaceDialog1.ReplaceText;
     end;
 end;
 
