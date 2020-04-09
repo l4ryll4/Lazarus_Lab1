@@ -1,11 +1,12 @@
 object Form2: TForm2
-  Left = 593
+  Left = 381
   Height = 240
-  Top = 576
+  Top = 490
   Width = 320
-  Caption = 'Form2'
+  Caption = 'О программе'
   ClientHeight = 240
   ClientWidth = 320
+  OnCreate = FormCreate
   LCLVersion = '2.0.6.0'
   object Memo1: TMemo
     Left = 0

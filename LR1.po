@@ -2,7 +2,7 @@ msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
 #: tform1.caption
-msgid "Калькулятор"
+msgid "Текстовый редактор"
 msgstr ""
 
 #: tform1.fail.caption
@@ -120,6 +120,27 @@ msgid "Заменить"
 msgstr ""
 
 #: tform2.caption
-msgid "Form2"
+msgid "О программе"
+msgstr ""
+
+#: tform3.radiobutton1.caption
+msgid "HTML"
+msgstr ""
+
+#: tform3.radiobutton2.caption
+msgid "CSS"
+msgstr ""
+
+#: tform3.radiobutton3.caption
+msgid "Python"
+msgstr ""
+
+#: tform3.radiogroup1.caption
+msgid "Выбор языка программирования"
+msgstr ""
+
+#: tform4.caption
+msgctxt "tform4.caption"
+msgid "Справка"
 msgstr ""
 

@@ -90,7 +90,7 @@ var
   todayDate: TDateTime;
 
 implementation
-uses Unit2, Unit3;
+uses Unit2, Unit3, Unit4;
 
 procedure Ansi_Memo(File_Ansi: string);
 var
@@ -219,7 +219,7 @@ end;
 
 procedure TForm1.Spravka1Click(Sender: TObject);
 begin
-  openURL('http:\\freepascal.ru');
+  Form4.Show;
 end;
 
 procedure TForm1.Tema1Click(Sender: TObject);

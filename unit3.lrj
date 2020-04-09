@@ -1,0 +1,6 @@
+{"version":1,"strings":[
+{"hash":231870687,"name":"tform3.radiogroup1.caption","sourcebytes":[208,146,209,139,208,177,208,190,209,128,32,209,143,208,183,209,139,208,186,208,176,32,208,191,209,128,208,190,208,179,209,128,208,176,208,188,208,188,208,184,209,128,208,190,208,178,208,176,208,189,208,184,209,143],"value":"\u0412\u044B\u0431\u043E\u0440 \u044F\u0437\u044B\u043A\u0430 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F"},
+{"hash":317724,"name":"tform3.radiobutton1.caption","sourcebytes":[72,84,77,76],"value":"HTML"},
+{"hash":18563,"name":"tform3.radiobutton2.caption","sourcebytes":[67,83,83],"value":"CSS"},
+{"hash":92319582,"name":"tform3.radiobutton3.caption","sourcebytes":[80,121,116,104,111,110],"value":"Python"}
+]}

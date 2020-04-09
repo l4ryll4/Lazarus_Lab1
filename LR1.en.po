@@ -1,7 +1,6 @@
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
@@ -9,12 +8,11 @@ msgstr ""
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
 "X-Generator: Poedit 2.3\n"
 
 #: tform1.caption
-msgid "Калькулятор"
-msgstr "Calculator"
+msgid "Текстовый редактор"
+msgstr "Text editor"
 
 #: tform1.fail.caption
 msgid "Файл"
@@ -42,7 +40,7 @@ msgstr "English"
 
 #: tform1.naiti.caption
 msgid "Найти"
-msgstr "Find"
+msgstr "FInd"
 
 #: tform1.novi.caption
 msgid "Новый"
@@ -120,7 +118,7 @@ msgstr "Cut"
 
 #: tform1.vstavit.caption
 msgid "Вставить"
-msgstr "Paste"
+msgstr "Past"
 
 #: tform1.zakrit.caption
 msgid "Закрыть"
@@ -131,6 +129,26 @@ msgid "Заменить"
 msgstr "Replace"
 
 #: tform2.caption
-msgid "Form2"
-msgstr ""
+msgid "О программе"
+msgstr "About Program"
 
+#: tform3.radiobutton1.caption
+msgid "HTML"
+msgstr "HTML"
+
+#: tform3.radiobutton2.caption
+msgid "CSS"
+msgstr "CSS"
+
+#: tform3.radiobutton3.caption
+msgid "Python"
+msgstr "Python"
+
+#: tform3.radiogroup1.caption
+msgid "Выбор языка программирования"
+msgstr "Programming language"
+
+#: tform4.caption
+msgctxt "tform4.caption"
+msgid "Справка"
+msgstr "Help"

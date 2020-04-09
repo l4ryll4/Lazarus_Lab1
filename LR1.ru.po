@@ -1,7 +1,6 @@
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
@@ -9,128 +8,147 @@ msgstr ""
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
 "X-Generator: Poedit 2.3\n"
 
 #: tform1.caption
-msgid "Калькулятор"
-msgstr "Калькулятор"
+msgid "Текстовый редактор"
+msgstr ""
 
 #: tform1.fail.caption
 msgid "Файл"
-msgstr "Файл"
+msgstr ""
 
 #: tform1.kopirovat.caption
 msgid "Копировать"
-msgstr "Копировать"
+msgstr ""
 
 #: tform1.menuitem1.caption
 msgid "Режим IDE"
-msgstr "Режим IDE"
+msgstr ""
 
 #: tform1.menuitem2.caption
 msgid "Язык"
-msgstr "Язык"
+msgstr ""
 
 #: tform1.menuitem3.caption
 msgid "Русский"
-msgstr "Русский"
+msgstr ""
 
 #: tform1.menuitem4.caption
 msgid "Английский"
-msgstr "Английский"
+msgstr ""
 
 #: tform1.naiti.caption
 msgid "Найти"
-msgstr "Найти"
+msgstr ""
 
 #: tform1.novi.caption
 msgid "Новый"
-msgstr "Новый"
+msgstr ""
 
 #: tform1.oprogramme.caption
 msgid "О Программе"
-msgstr "О Программе"
+msgstr ""
 
 #: tform1.otkrit.caption
 msgid "Открыть"
-msgstr "Открыть"
+msgstr ""
 
 #: tform1.poisk.caption
 msgid "Поиск"
-msgstr "Поиск"
+msgstr ""
 
 #: tform1.pravka.caption
 msgid "Правка"
-msgstr "Правка"
+msgstr ""
 
 #: tform1.shrift.caption
 msgid "Шрифт"
-msgstr "Шрифт"
+msgstr ""
 
 #: tform1.sohranit.caption
 msgid "Сохранить"
-msgstr "Сохранить"
+msgstr ""
 
 #: tform1.sohranitkak.caption
 msgid "Сохранить как"
-msgstr "Сохранить как"
+msgstr ""
 
 #: tform1.spravka.caption
 msgctxt "tform1.spravka.caption"
 msgid "Справка"
-msgstr "Справка"
+msgstr ""
 
 #: tform1.spravka1.caption
 msgctxt "tform1.spravka1.caption"
 msgid "Справка"
-msgstr "Справка"
+msgstr ""
 
 #: tform1.tema.caption
 msgid "Тема оформления"
-msgstr "Тема оформления"
+msgstr ""
 
 #: tform1.tema1.caption
 msgid "Тема 1"
-msgstr "Тема 1"
+msgstr ""
 
 #: tform1.tema2.caption
 msgid "Тема 2"
-msgstr "Тема 2"
+msgstr ""
 
 #: tform1.tema3.caption
 msgid "Тема 3"
-msgstr "Тема 3"
+msgstr ""
 
 #: tform1.vid.caption
 msgid "Вид"
-msgstr "Вид"
+msgstr ""
 
 #: tform1.videlitvse.caption
 msgid "Выделить все"
-msgstr "Выделить все"
+msgstr ""
 
 #: tform1.vihod.caption
 msgid "Выход"
-msgstr "Выход"
+msgstr ""
 
 #: tform1.virezat.caption
 msgid "Вырезать"
-msgstr "Вырезать"
+msgstr ""
 
 #: tform1.vstavit.caption
 msgid "Вставить"
-msgstr "Вставить"
+msgstr ""
 
 #: tform1.zakrit.caption
 msgid "Закрыть"
-msgstr "Закрыть"
+msgstr ""
 
 #: tform1.zamenit.caption
 msgid "Заменить"
-msgstr "Заменить"
+msgstr ""
 
 #: tform2.caption
-msgid "Form2"
-msgstr "Form2"
+msgid "О программе"
+msgstr ""
 
+#: tform3.radiobutton1.caption
+msgid "HTML"
+msgstr ""
+
+#: tform3.radiobutton2.caption
+msgid "CSS"
+msgstr ""
+
+#: tform3.radiobutton3.caption
+msgid "Python"
+msgstr ""
+
+#: tform3.radiogroup1.caption
+msgid "Выбор языка программирования"
+msgstr ""
+
+#: tform4.caption
+msgctxt "tform4.caption"
+msgid "Справка"
+msgstr ""
