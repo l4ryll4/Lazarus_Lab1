@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, StdCtrls,
   ExtCtrls, Lclintf, ComCtrls, SynEdit, SynHighlighterHTML, SynHighlighterCss,
-  SynHighlighterPython;
+  SynHighlighterPython, LCLTranslator;
 
 type
 
@@ -19,6 +19,9 @@ type
     MainMenu1: TMainMenu;
     Kopirovat: TMenuItem;
     MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
     StatusBar1: TStatusBar;
     SynCssSyn1: TSynCssSyn;
     SynEdit1: TSynEdit;
@@ -56,6 +59,8 @@ type
     procedure Memo1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer
       );
     procedure MenuItem1Click(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
+    procedure MenuItem4Click(Sender: TObject);
     procedure NaitiClick(Sender: TObject);
     procedure NoviClick(Sender: TObject);
     procedure OprogrammeClick(Sender: TObject);
@@ -184,6 +189,16 @@ begin
          SynCh:= 0;
          Form3.Hide;
        end;
+end;
+
+procedure TForm1.MenuItem3Click(Sender: TObject);
+begin
+  SetDefaultLang('russian');
+end;
+
+procedure TForm1.MenuItem4Click(Sender: TObject);
+begin
+  SetDefaultLang('english');
 end;
 
 procedure TForm1.OprogrammeClick(Sender: TObject);

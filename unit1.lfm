@@ -1,9 +1,9 @@
 object Form1: TForm1
-  Left = 526
+  Left = 1199
   Height = 240
-  Top = 258
+  Top = 692
   Width = 326
-  Caption = 'Form1'
+  Caption = 'Калькулятор'
   ClientHeight = 220
   ClientWidth = 326
   Menu = MainMenu1
@@ -625,6 +625,17 @@ object Form1: TForm1
       object Oprogramme: TMenuItem
         Caption = 'О Программе'
         OnClick = OprogrammeClick
+      end
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Язык'
+      object MenuItem3: TMenuItem
+        Caption = 'Русский'
+        OnClick = MenuItem3Click
+      end
+      object MenuItem4: TMenuItem
+        Caption = 'Английский'
+        OnClick = MenuItem4Click
       end
     end
   end
