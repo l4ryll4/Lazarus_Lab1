@@ -665,6 +665,8 @@ object Form1: TForm1
   end
   object ReplaceDialog1: TReplaceDialog
     Options = [frDown, frReplace, frReplaceAll, frHidePromptOnReplace]
+    OnFind = ReplaceDialog1Find
+    OnReplace = ReplaceDialog1Replace
     left = 16
     top = 40
   end

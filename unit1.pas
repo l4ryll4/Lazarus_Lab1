@@ -78,6 +78,8 @@ type
     procedure VstavitClick(Sender: TObject);
     procedure ZamenitClick(Sender: TObject);
     procedure FindDialog1Find(Sender: TObject);
+    procedure ReplaceDialog1Find(Sender: TObject);
+    procedure ReplaceDialog1Replace(Sender: TObject);
   private
 
   public
@@ -148,15 +150,6 @@ end;
 procedure TForm1.NaitiClick(Sender: TObject);
 begin
   FindDialog1.Execute;
-  //if FindDialog1.execute=true then
-        //begin
-           //if pos(FindDialog1.FindText, Memo1.Text) <> 0 then
-                //begin
-                   //Memo1.HideSelection := False;
-                   //Memo1.SelStart := pos(FindDialog1.FindText, Memo1.Text) - 1;
-                   //Memo1.SelLength := Length(FindDialog1.FindText);
-                //end;
-        //end;
 end;
 
 procedure TForm1.FindDialog1Find(Sender: TObject);
@@ -330,6 +323,39 @@ end;
 procedure TForm1.ZamenitClick(Sender: TObject);
 begin
   ReplaceDialog1.Execute();
+end;
+
+procedure TForm1.ReplaceDialog1Find(Sender: TObject);
+var
+   Found, StartPos: Integer;
+begin
+   if Memo1.SelLength <> 0 then
+      StartPos := Memo1.SelStart + Memo1.SelLength
+   else
+      StartPos := 0;
+
+   Found := PosEx(FindDialog1.FindText, Memo1.Text, StartPos + 1);
+   if Found <> 0 then
+   begin
+      Memo1.HideSelection := False;
+      Memo1.SelStart := Found - 1;
+      Memo1.SelLength := Length(FindDialog1.FindText);
+   end
+   else
+      MessageDlg ('Строка ' + FindDialog1.FindText + ' не найдена!', mtConfirmation, [mbYes], 0);
+end;
+
+procedure TForm1.ReplaceDialog1Replace(Sender: TObject);
+begin
+  if frReplaceAll in ReplaceDialog1.Options then
+  begin
+     Memo1.Text := StringReplace(Memo1.Text, ReplaceDialog1.FindText, ReplaceDialog1.ReplaceText, [rfReplaceAll]);
+  end
+  else
+  begin
+    ReplaceDialog1Find(Self);
+    if Memo1.SelLength > 0 then Memo1.SelText := ReplaceDialog1.ReplaceText;
+  end;
 end;
 
 
