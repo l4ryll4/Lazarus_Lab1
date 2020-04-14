@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, StdCtrls,
   ExtCtrls, Lclintf, ComCtrls, SynEdit, SynHighlighterHTML, SynHighlighterCss,
-  SynHighlighterPython, LCLTranslator;
+  SynHighlighterPython, StrUtils, LCLTranslator;
 
 type
 
@@ -77,6 +77,7 @@ type
     procedure VirezatClick(Sender: TObject);
     procedure VstavitClick(Sender: TObject);
     procedure ZamenitClick(Sender: TObject);
+    procedure FindDialog1Find(Sender: TObject);
   private
 
   public
@@ -146,15 +147,36 @@ end;
 
 procedure TForm1.NaitiClick(Sender: TObject);
 begin
-   if FindDialog1.execute=true then
-        begin
-           if pos(FindDialog1.FindText, Memo1.Text) <> 0 then
-                begin
-                   Memo1.HideSelection := False;
-                   Memo1.SelStart := pos(FindDialog1.FindText, Memo1.Text) - 1;
-                   Memo1.SelLength := Length(FindDialog1.FindText);
-                end;
-        end;
+  FindDialog1.Execute;
+  //if FindDialog1.execute=true then
+        //begin
+           //if pos(FindDialog1.FindText, Memo1.Text) <> 0 then
+                //begin
+                   //Memo1.HideSelection := False;
+                   //Memo1.SelStart := pos(FindDialog1.FindText, Memo1.Text) - 1;
+                   //Memo1.SelLength := Length(FindDialog1.FindText);
+                //end;
+        //end;
+end;
+
+procedure TForm1.FindDialog1Find(Sender: TObject);
+var
+   Found, StartPos: Integer;
+begin
+   if Memo1.SelLength <> 0 then // для повторного поиска
+      StartPos := Memo1.SelStart + Memo1.SelLength
+   else
+      StartPos := 0;
+
+   Found := PosEx(FindDialog1.FindText, Memo1.Text, StartPos + 1);
+   if Found <> 0 then
+   begin
+      Memo1.HideSelection := False;
+      Memo1.SelStart := Found - 1;
+      Memo1.SelLength := Length(FindDialog1.FindText);
+   end
+   else
+      MessageDlg ('Строка ' + FindDialog1.FindText + ' не найдена!', mtConfirmation, [mbYes], 0);
 end;
 
 procedure TForm1.KopirovatClick(Sender: TObject);
