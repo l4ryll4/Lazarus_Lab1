@@ -148,7 +148,12 @@ procedure TForm1.NaitiClick(Sender: TObject);
 begin
    if FindDialog1.execute=true then
         begin
-           if SynCh = 0 then Form1.Memo1.Text :=FindDialog1.FindText else Form1.SynEdit1.Text :=FindDialog1.FindText;
+           if pos(FindDialog1.FindText, Memo1.Text) <> 0 then
+                begin
+                   Memo1.HideSelection := False;
+                   Memo1.SelStart := pos(FindDialog1.FindText, Memo1.Text) - 1;
+                   Memo1.SelLength := Length(FindDialog1.FindText);
+                end;
         end;
 end;
 
@@ -302,11 +307,9 @@ end;
 
 procedure TForm1.ZamenitClick(Sender: TObject);
 begin
-  if ReplaceDialog1.Execute then
-    begin
-       If SynCh = 0 then Form1.Memo1.Text :=ReplaceDialog1.ReplaceText else Form1.SynEdit1.Text :=ReplaceDialog1.ReplaceText;
-    end;
+  ReplaceDialog1.Execute();
 end;
+
 
 end.
 

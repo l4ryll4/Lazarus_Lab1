@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 1199
+  Left = 456
   Height = 240
-  Top = 692
+  Top = 308
   Width = 326
   Caption = 'Текстовый редактор'
   ClientHeight = 220
@@ -658,6 +658,7 @@ object Form1: TForm1
     top = 96
   end
   object FindDialog1: TFindDialog
+    Options = [frDown, frFindNext]
     left = 56
     top = 40
   end
