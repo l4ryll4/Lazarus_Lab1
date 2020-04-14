@@ -278,7 +278,7 @@ begin
   todayTime:=Time;
   todayDate:=Date;
 
-  if SynCh = 0 then a:= IntToStr(SynEdit1.CaretY) else a:= IntToStr(SynEdit1.CaretY);
+  if SynCh = 0 then a:= IntToStr(Memo1.CaretPos.Y + 1) else a:= IntToStr(SynEdit1.CaretY);
 
   StatusBar1.Panels[0].Text:=DateToStr(todayDate);
   StatusBar1.Panels[1].Text:=TimeToStr(todayTime);
